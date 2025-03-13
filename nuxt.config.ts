@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     clients: {
       default: {
         httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.NUXT_CONTENTFUL_SPACE_ID}`,
+        httpLinkOptions: {
+          headers: {
+            Authorization: `Bearer ${process.env.NUXT_CONTENTFUL_ACCESS_TOKEN}`,
+          },
+        },
       },
     },
   },
