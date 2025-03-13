@@ -7,28 +7,7 @@
 </template>
 
 <script setup lang="ts">
-const query = gql`
-  query {
-    drinkCollection {
-      items {
-        title
-        price
-        size
-        sugarLevel
-        toppingsCollection {
-          items {
-            _id
-            title
-            price
-          }
-        }
-      }
-    }
-  }
-`;
-
-const variables = { limit: 5 };
-const { data } = await useAsyncQuery(query, variables);
+const { data } = await useDrinks();
 
 useHead({
   title: "Home Page",
