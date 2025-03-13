@@ -10,4 +10,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    contentful: {
+      spaceId: "",
+      accessToken: "",
+    },
+  },
 });

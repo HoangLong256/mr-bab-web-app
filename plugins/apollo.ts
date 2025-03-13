@@ -1,9 +1,19 @@
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.hook("apollo:auth", ({ client, token }) => {
-    // `client` can be used to differentiate logic on a per client basis.
+import { CONTENTFUL_TOKEN_COOKIE_NAME } from "~/constants/index.constants";
 
-    // apply apollo client token
-    // TODO: Handle the secure logic here
-    token.value = "";
+export default defineNuxtPlugin(async (nuxtApp) => {
+  const counter = useCookie(CONTENTFUL_TOKEN_COOKIE_NAME);
+
+  nuxtApp.hook("app:beforeMount", async () => {
+    try {
+      await $fetch("/api/apollo/auth", {
+        method: "POST",
+      });
+    } catch (error) {
+      console.error("Error in apollo auth:", error);
+    }
+  });
+
+  nuxtApp.hook("apollo:auth", ({ client, token }) => {
+    token.value = counter.value || "";
   });
 });

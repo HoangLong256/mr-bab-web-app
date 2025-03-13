@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-slate-50 min-h-dvh">
+  <main class="bg-slate-50 min-h-dvh text-black">
     <Header />
     <UContainer
       :ui="{
