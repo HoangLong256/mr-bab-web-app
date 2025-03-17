@@ -10,5 +10,7 @@ export interface ContentfulImageAsset {
 }
 
 export interface ContentfulImageCollection {
-  items: ContentfulImageAsset[];
+  imageCollection: {
+    items: ContentfulImageAsset[];
+  };
 }

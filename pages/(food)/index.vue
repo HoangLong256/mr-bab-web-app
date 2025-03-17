@@ -2,12 +2,13 @@
   <div>
     <h1>Home Page</h1>
     <p>Welcome to the home page</p>
-    <pre>{{ data }}</pre>
+    <pre>{{ status }}</pre>
+    <pre>{{ drinks }}</pre>
   </div>
 </template>
 
 <script setup lang="ts">
-const { data } = await useDrinks();
+const { drinks, status } = await useGetDrinkByTitle("Mango Fruit Teas");
 
 useHead({
   title: "Home Page",

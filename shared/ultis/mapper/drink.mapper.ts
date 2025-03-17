@@ -8,11 +8,11 @@ import { transformContentfulToppingCollection } from "./topping.mapper";
 
 export const transformContentfulDrink = ({
   _id,
-  title,
-  price,
-  size,
-  sugarLevel,
-  iceLevel,
+  title = "",
+  price = 0,
+  size = [],
+  sugarLevel = [],
+  iceLevel = [],
   toppingsCollection,
   imagesCollection,
 }: ContentfulDrink): Drink => {
@@ -29,7 +29,9 @@ export const transformContentfulDrink = ({
 };
 
 export function transformContentfulDrinkCollection(
-  drinkCollection: ContentfulDrinkCollection
+  value?: ContentfulDrinkCollection
 ): Drink[] {
-  return drinkCollection.items?.map(transformContentfulDrink) || [];
+  if (!value) return [];
+
+  return value.drinkCollection.items?.map(transformContentfulDrink) || [];
 }

@@ -7,9 +7,9 @@ import { transformContentfulImageAsset } from "./image.mapper";
 
 export function transformContentfulTopping({
   _id,
-  title,
-  description,
-  price,
+  title = "",
+  description = "",
+  price = 0,
   image,
 }: ContentfulTopping): Topping {
   return {
@@ -22,7 +22,9 @@ export function transformContentfulTopping({
 }
 
 export function transformContentfulToppingCollection(
-  toppingCollection: ContentfulToppingCollection
+  value?: ContentfulToppingCollection
 ): Topping[] {
-  return toppingCollection.items?.map(transformContentfulTopping) || [];
+  if (!value) return [];
+
+  return value.toppingCollection.items?.map(transformContentfulTopping) || [];
 }

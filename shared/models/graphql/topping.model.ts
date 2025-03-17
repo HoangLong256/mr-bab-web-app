@@ -9,5 +9,7 @@ export interface ContentfulTopping {
 }
 
 export interface ContentfulToppingCollection {
-  items: ContentfulTopping[];
+  toppingCollection: {
+    items: ContentfulTopping[];
+  };
 }

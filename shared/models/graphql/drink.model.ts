@@ -13,5 +13,7 @@ export interface ContentfulDrink {
 }
 
 export interface ContentfulDrinkCollection {
-  items: ContentfulDrink[];
+  drinkCollection: {
+    items: ContentfulDrink[];
+  };
 }
