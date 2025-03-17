@@ -6,32 +6,42 @@ import type {
 import { transformContentfulImageCollection } from "./image.mapper";
 import { transformContentfulToppingCollection } from "./topping.mapper";
 
-export const transformContentfulDrink = ({
-  _id,
-  title = "",
-  price = 0,
-  size = [],
-  sugarLevel = [],
-  iceLevel = [],
-  toppingsCollection,
-  imagesCollection,
-}: ContentfulDrink): Drink => {
+export const transformContentfulDrink = (
+  drink: ContentfulDrink | undefined
+): Drink | undefined => {
+  if (!drink) return undefined;
+
+  const {
+    _id,
+    title = "",
+    price = 0,
+    size = [],
+    sugarLevel = [],
+    iceLevel = [],
+    toppingsCollection = {},
+    imagesCollection = {},
+  } = drink;
+
   return {
     id: _id,
-    title,
-    price,
-    size,
-    sugarLevel,
-    iceLevel,
-    toppings: transformContentfulToppingCollection(toppingsCollection),
-    images: transformContentfulImageCollection(imagesCollection),
+    title: title,
+    price: price,
+    size: size,
+    sugarLevel: sugarLevel,
+    iceLevel: iceLevel,
+    toppings: toppingsCollection
+      ? transformContentfulToppingCollection(toppingsCollection)
+      : [],
+    images: imagesCollection
+      ? transformContentfulImageCollection(imagesCollection)
+      : [],
   };
 };
 
 export function transformContentfulDrinkCollection(
-  value?: ContentfulDrinkCollection
+  collection: ContentfulDrinkCollection | undefined
 ): Drink[] {
-  if (!value) return [];
+  if (!collection) return [];
 
-  return value.drinkCollection.items?.map(transformContentfulDrink) || [];
+  return (collection?.items?.map(transformContentfulDrink) as Drink[]) || [];
 }

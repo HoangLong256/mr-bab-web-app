@@ -21,4 +21,7 @@ export default defineNuxtConfig({
       accessToken: "",
     },
   },
+  imports: {
+    dirs: ["composables/**"],
+  },
 });

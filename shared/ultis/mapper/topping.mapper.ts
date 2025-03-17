@@ -5,26 +5,28 @@ import type {
 } from "~/shared/models/graphql/topping.model";
 import { transformContentfulImageAsset } from "./image.mapper";
 
-export function transformContentfulTopping({
-  _id,
-  title = "",
-  description = "",
-  price = 0,
-  image,
-}: ContentfulTopping): Topping {
+export function transformContentfulTopping(
+  topping: ContentfulTopping | undefined
+): Topping | undefined {
+  if (!topping) return undefined;
+
+  const { _id, title = "", description = "", price = 0, image = {} } = topping;
+
   return {
     id: _id,
     title,
     description,
     price,
-    image: transformContentfulImageAsset(image),
+    image: image ? transformContentfulImageAsset(image) : undefined,
   };
 }
 
 export function transformContentfulToppingCollection(
-  value?: ContentfulToppingCollection
+  collection: ContentfulToppingCollection | undefined
 ): Topping[] {
-  if (!value) return [];
+  if (!collection) return [];
 
-  return value.toppingCollection.items?.map(transformContentfulTopping) || [];
+  return (
+    (collection?.items?.map(transformContentfulTopping) as Topping[]) || []
+  );
 }

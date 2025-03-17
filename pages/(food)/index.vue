@@ -8,7 +8,9 @@
 </template>
 
 <script setup lang="ts">
-const { drinks, status } = await useGetDrinkByTitle("Mango Fruit Teas");
+const { drinks, status } = await useGetDrinks({
+  limit: 5,
+});
 
 useHead({
   title: "Home Page",

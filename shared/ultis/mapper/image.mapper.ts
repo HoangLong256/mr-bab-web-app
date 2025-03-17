@@ -4,16 +4,22 @@ import type {
   ContentfulImageCollection,
 } from "~/shared/models/graphql/image.model";
 
-export function transformContentfulImageAsset({
-  title = "",
-  description = "",
-  contentType = "",
-  fileName = "",
-  size = 0,
-  url = "",
-  width = 0,
-  height = 0,
-}: ContentfulImageAsset): Image {
+export function transformContentfulImageAsset(
+  asset: ContentfulImageAsset | undefined
+): Image | undefined {
+  if (!asset) return undefined;
+
+  const {
+    title = "",
+    description = "",
+    contentType = "",
+    fileName = "",
+    size = 0,
+    url = "",
+    width = 0,
+    height = 0,
+  } = asset;
+
   return {
     title,
     description,
@@ -27,9 +33,11 @@ export function transformContentfulImageAsset({
 }
 
 export function transformContentfulImageCollection(
-  value?: ContentfulImageCollection
+  collection: ContentfulImageCollection | undefined
 ): Image[] {
-  if (!value) return [];
+  if (!collection) return [];
 
-  return value.imageCollection.items?.map(transformContentfulImageAsset) || [];
+  return (
+    (collection?.items?.map(transformContentfulImageAsset) as Image[]) || []
+  );
 }
