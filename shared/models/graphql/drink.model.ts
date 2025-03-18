@@ -5,9 +5,9 @@ export interface ContentfulDrink {
   _id: string;
   title?: string;
   price?: number;
-  size?: string[];
-  iceLevel?: string[];
-  sugarLevel?: string[];
+  sizes?: string[];
+  iceLevels?: string[];
+  sugarLevels?: string[];
   toppingsCollection?: ContentfulToppingCollection;
   imagesCollection?: ContentfulImageCollection;
 }

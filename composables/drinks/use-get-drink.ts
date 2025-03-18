@@ -8,9 +8,9 @@ const useGetDrink = async (variables: Record<string, any>) => {
         _id
         title
         price
-        size
-        iceLevel
-        sugarLevel
+        sizes
+        iceLevels
+        sugarLevels
         imagesCollection {
           items {
             fileName

@@ -15,9 +15,9 @@ export const transformContentfulDrink = (
     _id,
     title = "",
     price = 0,
-    size = [],
-    sugarLevel = [],
-    iceLevel = [],
+    sizes = [],
+    sugarLevels = [],
+    iceLevels = [],
     toppingsCollection = {},
     imagesCollection = {},
   } = drink;
@@ -26,9 +26,9 @@ export const transformContentfulDrink = (
     id: _id,
     title: title,
     price: price,
-    size: size,
-    sugarLevel: sugarLevel,
-    iceLevel: iceLevel,
+    sizes,
+    sugarLevels,
+    iceLevels,
     toppings: toppingsCollection
       ? transformContentfulToppingCollection(toppingsCollection)
       : [],

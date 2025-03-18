@@ -3,11 +3,11 @@ import type { Topping } from "./topping.model";
 
 export interface Drink {
   id: string;
-  iceLevel?: string[];
+  iceLevels?: string[];
   images?: Image[];
   price?: number;
-  size?: string[];
-  sugarLevel?: string[];
+  sizes?: string[];
+  sugarLevels?: string[];
   title?: string;
   toppings?: Topping[];
 }
