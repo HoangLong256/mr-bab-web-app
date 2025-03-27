@@ -3,20 +3,20 @@ module.exports = {
   // Specify files for Tailwind to scan to detect used classes
   content: [
     './components/**/*.{vue,js,ts}', // Include .vue files for components using Tailwind classes
-    './layouts/**/*.vue',            // Include .vue for layout templates
-    './pages/**/*.vue',             // Include .vue for page templates
-    './app.vue',                    // Include main app file
-    './plugins/**/*.{js,ts}',       // Scan plugin files
-    './nuxt.config.{js,ts}',        // Include Nuxt config for dynamic classes
+    './layouts/**/*.vue', // Include .vue for layout templates
+    './pages/**/*.vue', // Include .vue for page templates
+    './app.vue', // Include main app file
+    './plugins/**/*.{js,ts}', // Scan plugin files
+    './nuxt.config.{js,ts}', // Include Nuxt config for dynamic classes
   ],
-  
+
+  // Add Tailwind plugins if needed
+  plugins: [],
+
   // Customize Tailwind's default theme
   theme: {
     extend: {},
   },
-  
-  // Add Tailwind plugins if needed
-  plugins: [],
 };
 
 /*

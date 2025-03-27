@@ -1,3 +1,5 @@
 <template>
-  Bubble Tea Page
+  <div>
+    <h1>Bubble Tea</h1>
+  </div>
 </template>

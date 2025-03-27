@@ -13,11 +13,11 @@
         <h3 class="text-md font-medium">Sizes</h3>
         <UBadge
           v-for="size in drink.sizes"
+          :key="size"
           class="hover:bg-slate-200 cursor-pointer"
           :class="{ 'bg-slate-200': selectedSize === size }"
           color="white"
           variant="solid"
-          :key="size"
           :label="size.split('-')[0]"
           @click="selectedSize = size"
         />
@@ -27,11 +27,11 @@
         <h3 class="text-md font-medium">Sugar Levels</h3>
         <UBadge
           v-for="sugarLevel in drink.sugarLevels"
+          :key="sugarLevel"
           class="hover:bg-slate-200 cursor-pointer"
           :class="{ 'bg-slate-200': selectedSugarLevel === sugarLevel }"
           color="white"
           variant="solid"
-          :key="sugarLevel"
           :label="sugarLevel"
           @click="selectedSugarLevel = sugarLevel"
         />
@@ -41,11 +41,11 @@
         <h3 class="text-md font-medium">Ice Levels</h3>
         <UBadge
           v-for="iceLevel in drink.iceLevels"
+          :key="iceLevel"
           class="hover:bg-slate-200 cursor-pointer"
           :class="{ 'bg-slate-200': selectedIceLevel === iceLevel }"
           color="white"
           variant="solid"
-          :key="iceLevel"
           :label="iceLevel"
           @click="selectedIceLevel = iceLevel"
         />
@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { UBadge } from "#components";
+import { UBadge } from '#components';
 
 const { id } = useRoute().params;
 
@@ -72,7 +72,7 @@ const selectedSize = ref<string | null>(drink.value?.sizes?.[0] ?? null);
 
 const price = computed(() => {
   const basePrice = drink.value?.price ?? 0;
-  const sizePrice = Number(selectedSize.value?.split("-")[1] ?? 0);
+  const sizePrice = Number(selectedSize.value?.split('-')[1] ?? 0);
   return basePrice + sizePrice;
 });
 

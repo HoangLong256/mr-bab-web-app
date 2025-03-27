@@ -1,9 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxtjs/apollo"],
-  css: ["~/assets/css/tailwind.css"],
   apollo: {
     clients: {
       default: {
@@ -16,13 +12,17 @@ export default defineNuxtConfig({
       },
     },
   },
+  compatibilityDate: '2024-11-01',
+  css: ['~/assets/css/tailwind.css'],
+  devtools: { enabled: true },
+  imports: {
+    dirs: ['composables/**'],
+  },
+  modules: ['@nuxt/ui', '@nuxtjs/apollo', '@nuxt/eslint'],
   runtimeConfig: {
     contentful: {
-      spaceId: "",
-      accessToken: "",
+      accessToken: '',
+      spaceId: '',
     },
-  },
-  imports: {
-    dirs: ["composables/**"],
   },
 });

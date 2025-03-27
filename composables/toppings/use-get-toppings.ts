@@ -1,7 +1,8 @@
-import type { ContentfulToppingCollection } from "~/shared/models/graphql/topping.model";
-import { transformContentfulToppingCollection } from "~/shared/ultis/mapper/topping.mapper";
+import type { ContentfulToppingCollection } from '~/shared/models/graphql/topping.model';
 
-export const useGetToppings = async (variables: Record<string, any>) => {
+import { transformContentfulToppingCollection } from '~/shared/ultis/mapper/topping.mapper';
+
+export const useGetToppings = async (variables: Record<string, unknown>) => {
   const query = gql`
     query ($limit: Int, $where: ToppingFilter) {
       toppingCollection(limit: $limit, where: $where) {
@@ -27,7 +28,7 @@ export const useGetToppings = async (variables: Record<string, any>) => {
   });
 
   return {
-    toppings,
     status,
+    toppings,
   };
 };

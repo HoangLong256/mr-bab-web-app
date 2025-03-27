@@ -1,7 +1,8 @@
-import type { ContentfulDrink } from "~/shared/models/graphql/drink.model";
-import { transformContentfulDrink } from "~/shared/ultis/mapper/drink.mapper";
+import type { ContentfulDrink } from '~/shared/models/graphql/drink.model';
 
-const useGetDrink = async (variables: Record<string, any>) => {
+import { transformContentfulDrink } from '~/shared/ultis/mapper/drink.mapper';
+
+const useGetDrink = async (variables: Record<string, unknown>) => {
   const query = gql`
     query drink($id: String!) {
       drink(id: $id) {

@@ -1,12 +1,12 @@
 export interface ContentfulImageAsset {
-  title?: string;
-  description?: string;
   contentType?: string;
+  description?: string;
   fileName?: string;
+  height?: number;
   size?: number;
+  title?: string;
   url?: string;
   width?: number;
-  height?: number;
 }
 
 export interface ContentfulImageCollection {

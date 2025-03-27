@@ -1,9 +1,9 @@
-import type { Image } from "./image.model";
-import type { Topping } from "./topping.model";
+import type { Image } from './image.model';
+import type { Topping } from './topping.model';
 
 export interface Drink {
-  id: string;
   iceLevels?: string[];
+  id: string;
   images?: Image[];
   price?: number;
   sizes?: string[];

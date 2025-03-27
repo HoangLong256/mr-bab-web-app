@@ -1,11 +1,11 @@
-import type { ContentfulImageAsset } from "./image.model";
+import type { ContentfulImageAsset } from './image.model';
 
 export interface ContentfulTopping {
   _id: string;
-  title?: string;
   description?: string;
-  price?: number;
   image?: ContentfulImageAsset;
+  price?: number;
+  title?: string;
 }
 
 export interface ContentfulToppingCollection {

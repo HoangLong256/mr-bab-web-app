@@ -1,15 +1,15 @@
-import type { ContentfulImageCollection } from "./image.model";
-import type { ContentfulToppingCollection } from "./topping.model";
+import type { ContentfulImageCollection } from './image.model';
+import type { ContentfulToppingCollection } from './topping.model';
 
 export interface ContentfulDrink {
   _id: string;
-  title?: string;
+  iceLevels?: string[];
+  imagesCollection?: ContentfulImageCollection;
   price?: number;
   sizes?: string[];
-  iceLevels?: string[];
   sugarLevels?: string[];
+  title?: string;
   toppingsCollection?: ContentfulToppingCollection;
-  imagesCollection?: ContentfulImageCollection;
 }
 
 export interface ContentfulDrinkCollection {

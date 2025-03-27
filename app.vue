@@ -8,14 +8,14 @@
 
 <script lang="ts" setup>
 useHead({
-  titleTemplate: (title) => (title ? `${title} | Mr.Bab` : "Mr.Bab"),
   meta: [
-    { charset: "utf-8", "data-n-head": "ssr" },
+    { charset: 'utf-8', 'data-n-head': 'ssr' },
     {
-      name: "description",
-      content: () => "Mr.Bab website",
+      name: 'description',
+      content: () => 'Mr.Bab website',
     },
-    { name: "author", content: "Mr.Bab" },
+    { content: 'Mr.Bab', name: 'author' },
   ],
+  titleTemplate: title => (title ? `${title} | Mr.Bab` : 'Mr.Bab'),
 });
 </script>

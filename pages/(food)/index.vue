@@ -13,6 +13,6 @@ const { drinks, status } = await useGetDrinks({
 });
 
 useHead({
-  title: "Home Page",
+  title: 'Home Page',
 });
 </script>
