@@ -1,8 +1,10 @@
 <template>
-  <div class="mr-bab-web-app">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <div class="mr-bab-web-app bg-gray-50 text-gray-900">
+    <UApp>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
   </div>
 </template>
 

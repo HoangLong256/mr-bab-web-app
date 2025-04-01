@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: '2024-11-01',
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   imports: {
     dirs: ['composables/**'],
